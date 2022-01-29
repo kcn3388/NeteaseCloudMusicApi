@@ -14,14 +14,14 @@
     <script>
       async function checkStatus(key) {
         const res = await axios({
-          url: `/login/qr/check?key=${key}&timerstamp=${Date.now()}`,
+          url: `/netease/login/qr/check?key=${key}&timerstamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         return res.data
       }
       async function getLoginStatus() {
         const res = await axios({
-          url: `/login/status?timerstamp=${Date.now()}`,
+          url: `/netease/login/status?timerstamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         document.querySelector('#info').innerText = JSON.stringify(res.data, null, 2)
@@ -31,12 +31,12 @@
         let timestamp = Date.now()
         this.getLoginStatus()
         const res = await axios({
-          url: `/login/qr/key?timerstamp=${Date.now()}`,
+          url: `/netease/login/qr/key?timerstamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         const key = res.data.data.unikey
         const res2 = await axios({
-          url: `/login/qr/create?key=${key}&qrimg=true&timerstamp=${Date.now()}`,
+          url: `/netease/login/qr/create?key=${key}&qrimg=true&timerstamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         document.querySelector('#qrImg').src = res2.data.data.qrimg

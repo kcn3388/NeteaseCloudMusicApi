@@ -22,7 +22,7 @@
 
     async function login() {
       const res = await axios({
-        url: `/login/cellphone?phone=${phone}&password=${encodeURIComponent(
+        url: `/netease/login/cellphone?phone=${phone}&password=${encodeURIComponent(
           password,
         )}`,
       })
@@ -31,7 +31,7 @@
     async function main() {
       await login()
       const res = await axios({
-        url: `/homepage/block/page`,
+        url: `/netease/homepage/block/page`,
         data: {
           cookie: cookieToken,
         },
@@ -42,7 +42,7 @@
       if (res.data.data.hasMore) {
         cursor = res.data.data.cursor
         const res2 = await axios({
-          url: `/homepage/block/page?time=${Date.now()}`,
+          url: `/netease/homepage/block/page?time=${Date.now()}`,
           data: {
             cookie: cookieToken,
             cursor: cursor,

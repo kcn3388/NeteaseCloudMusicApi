@@ -21,7 +21,7 @@
 
     async function login() {
       const res = await axios({
-        url: `/login/cellphone`,
+        url: `/netease/login/cellphone`,
         method: 'post',
         data: {
           phone: phone,
@@ -33,7 +33,7 @@
     async function main() {
       const cookieToken = await login()
       const res = await axios({
-        url: `/login/status`,
+        url: `/netease/login/status`,
         method: 'post',
         data: {
           cookie: cookieToken,

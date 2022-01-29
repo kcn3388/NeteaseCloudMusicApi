@@ -41,13 +41,13 @@
           false,
         )
         const res = await axios({
-          url: `/playlist/detail?id=${playlist_id}&timestamp=${Date.now()}`,
+          url: `/netease/playlist/detail?id=${playlist_id}&timestamp=${Date.now()}`,
         })
         document.querySelector('#playlist_cover').src = res.data.playlist.coverImgUrl
       }
       async function login() {
         const res = await axios({
-          url: `/login/cellphone?phone=${phone}&password=${password}`,
+          url: `/netease/login/cellphone?phone=${phone}&password=${password}`,
           withCredentials: true, //关键
         })
         cookieToken = res.data.cookie
@@ -58,7 +58,7 @@
         const imgSize = await getImgSize(file)
         const res = await axios({
           method: 'post',
-          url: `http://localhost:3000/playlist/cover/update?id=${playlist_id}&cookie=${cookieToken}&imgSize=${
+          url: `https://api.kcn3388.club/netease/playlist/cover/update?id=${playlist_id}&cookie=${cookieToken}&imgSize=${
             imgSize.width
           }&imgX=0&imgY=0&timestamp=${Date.now()}`,
           headers: {

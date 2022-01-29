@@ -21,14 +21,14 @@
       throw new Error(msg)
     }
     $.ajax({
-      url: `/login/cellphone?phone=${phone}&password=${password}`,
+      url: `/netease/login/cellphone?phone=${phone}&password=${password}`,
       xhrFields: {
         withCredentials: true, //关键
       },
       success: function (data) {
         console.log(data)
         $.ajax({
-          url: `/recommend/resource `,
+          url: `/netease/recommend/resource `,
           xhrFields: {
             withCredentials: true, //关键
           },
@@ -46,12 +46,12 @@
     })
 
     axios({
-      url: `/login/cellphone?phone=${phone}&password=${password}`,
+      url: `/netease/login/cellphone?phone=${phone}&password=${password}`,
       withCredentials: true, //关键
     }).then(function (res) {
       console.log(res.data)
       axios({
-        url: `/recommend/resource`,
+        url: `/netease/recommend/resource`,
         withCredentials: true, //关键
       }).then(function (res) {
         console.log(res.data)
