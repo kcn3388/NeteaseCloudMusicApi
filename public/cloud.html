@@ -26,7 +26,7 @@
     main()
     async function login() {
       const res = await axios({
-        url: `/login/cellphone?phone=${phone}&password=${encodeURIComponent(password)}`,
+        url: `/netease/login/cellphone?phone=${phone}&password=${encodeURIComponent(password)}`,
         withCredentials: true, //关键
       })
       cookieToken = res.data.cookie
@@ -50,7 +50,7 @@
       formData.append('songFile', file)
       axios({
         method: 'post',
-        url: `http://localhost:3000/cloud?time=${Date.now()}&cookie=${cookieToken}`,
+        url: `https://api.kcn3388.club/netease/cloud?time=${Date.now()}`,
         headers: {
           'Content-Type': 'multipart/form-data',
         },

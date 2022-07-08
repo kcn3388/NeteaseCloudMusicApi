@@ -33,14 +33,14 @@
           false,
         )
         const res = await axios({
-          url: `/user/detail?uid=32953014&timestamp=${Date.now()}`,
+          url: `/netease/user/detail?uid=32953014&timestamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         document.querySelector('#avatar').src = res.data.profile.avatarUrl
       }
       async function login() {
         const res = await axios({
-          url: `/login/cellphone?phone=${phone}&password=${password}`,
+          url: `/netease/login/cellphone?phone=${phone}&password=${password}`,
           withCredentials: true, //关键
         })
         cookieToken = res.data.cookie
@@ -51,7 +51,7 @@
         const imgSize = await getImgSize(file)
         const res = await axios({
           method: 'post',
-          url: `http://localhost:3000/avatar/upload?cookie=${cookieToken}&imgSize=${
+          url: `https://api.kcn3388.club/netease/avatar/upload?cookie=${cookieToken}&imgSize=${
             imgSize.width
           }&imgX=0&imgY=0&timestamp=${Date.now()}`,
           headers: {
